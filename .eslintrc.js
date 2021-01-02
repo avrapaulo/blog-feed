@@ -32,6 +32,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'camelcase': 'off',
     'space-before-function-paren': 'off',
     quotes: ['error', 'single']
   },
