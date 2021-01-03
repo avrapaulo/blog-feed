@@ -2,13 +2,14 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import { Card, Button } from 'react-bootstrap'
 import { FormatDate } from 'components/format-date'
+import { CommentList } from 'components/comment-list'
 import { Post } from 'models/post'
 
 interface Props {
   post: Post
 }
 
-const DetailPage = ({ post: { publish_date, title, content, author } }: Props) => (
+const DetailPage = ({ post: { publish_date, title, content, author, id } }: Props) => (
   <>
     <Button variant="outline-light" className="mb-2">
       <Link href="/">
@@ -31,6 +32,7 @@ const DetailPage = ({ post: { publish_date, title, content, author } }: Props) =
       </Card.Body>
       <Card.Footer className="text-muted text-right">{author}</Card.Footer>
     </Card>
+    <CommentList postId={id} />
   </>
 )
 
