@@ -1,11 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Link from 'next/link'
-import { Card, Button } from 'react-bootstrap'
-import { FormatDate } from 'components/format-date'
-import { CommentList } from 'components/comment-list'
-import { Post } from 'models/post'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
+import { CommentList } from 'components/comment-list'
+import { CommentDetails } from 'components/comment-details'
+import { Post } from 'models/post'
 
 interface Props {
   post: Post
@@ -24,32 +22,13 @@ const variants = {
   }
 }
 
-const DetailPage = ({ post: { publish_date, title, content, author, id } }: Props) => (
+export const DetailPage = ({ post }: Props) => (
   <motion.div initial="exit" animate="visible" exit="exit" variants={variants}>
     <Head>
-      <title>{title}</title>
+      <title>{post.title}</title>
     </Head>
-    <Button variant="outline-light" className="mb-2">
-      <Link href="/">
-        <a>🔙</a>
-      </Link>
-    </Button>
-    <Card className="text-center">
-      <Card.Header className="text-right">
-        <FormatDate publish_date={publish_date} />
-      </Card.Header>
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <div
-          className="text-justify"
-          dangerouslySetInnerHTML={{
-            __html: content
-          }}
-        />
-      </Card.Body>
-      <Card.Footer className="text-muted text-right">{author}</Card.Footer>
-    </Card>
-    <CommentList postId={id} />
+    <CommentDetails {...post} />
+    <CommentList postId={post.id} />
   </motion.div>
 )
 

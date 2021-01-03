@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add comment component matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="mt-5"
+  >
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label sr-only"
+        for="inlineFormInputName2"
+      >
+        Comment
+      </label>
+      <input
+        class="mb-2 mr-sm-2 form-control"
+        id="inlineFormInputName2"
+        placeholder="Leave here your opinion"
+      />
+      <div
+        class="invalid-feedback"
+      />
+    </div>
+    <button
+      class="mb-2 btn btn-primary"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`Add comment component matches snapshot with submit 1`] = `
+<DocumentFragment>
+  <form
+    class="mt-5"
+  >
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label sr-only"
+        for="inlineFormInputName2"
+      >
+        Comment
+      </label>
+      <input
+        class="mb-2 mr-sm-2 form-control is-invalid"
+        id="inlineFormInputName2"
+        placeholder="Leave here your opinion"
+      />
+      <div
+        class="invalid-feedback"
+      >
+        required field
+      </div>
+    </div>
+    <button
+      class="mb-2 btn btn-primary"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</DocumentFragment>
+`;

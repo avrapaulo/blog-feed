@@ -72,9 +72,11 @@ const Header = () => {
             </Button>
           </Navbar.Text>
         ) : (
-          <Button variant="outline-dark" onClick={handleShow}>
-            Sign in
-          </Button>
+          <Navbar.Text>
+            <Button variant="outline-dark" onClick={handleShow}>
+              Sign in
+            </Button>
+          </Navbar.Text>
         )}
       </Navbar>
 

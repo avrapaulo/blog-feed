@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateX(-100vw) translateZ(0);"
+  >
+    <button
+      class="mb-2 btn btn-outline-light"
+      type="button"
+    >
+      <a
+        href="/"
+      >
+        🔙
+      </a>
+    </button>
+    <div
+      class="text-center card"
+    >
+      <div
+        class="text-right card-header"
+      >
+        February 23, 2020 (10 months ago)
+      </div>
+      <div
+        class="card-body"
+      >
+        <div
+          class="card-title h5"
+        >
+          title
+        </div>
+        <div
+          class="text-justify"
+        >
+          content
+        </div>
+      </div>
+      <div
+        class="text-muted text-right card-footer"
+      >
+        author
+      </div>
+    </div>
+    <div
+      class="mt-4"
+    >
+      Comments: 
+    </div>
+    <form
+      class="mt-5"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          class="form-label sr-only"
+          for="inlineFormInputName2"
+        >
+          Comment
+        </label>
+        <input
+          class="mb-2 mr-sm-2 form-control"
+          id="inlineFormInputName2"
+          placeholder="Leave here your opinion"
+        />
+        <div
+          class="invalid-feedback"
+        />
+      </div>
+      <button
+        class="mb-2 btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

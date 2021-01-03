@@ -7,7 +7,7 @@ interface Props {
   posts: Post[]
 }
 
-const HomePage = ({ posts }: Props) => (
+export const HomePage = ({ posts }: Props) => (
   <>
     <Head>
       <title>Blog Feed</title>

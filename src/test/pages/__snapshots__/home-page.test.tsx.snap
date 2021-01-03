@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div>
+      <a
+        class="link-unstyled"
+        href="/slug"
+      >
+        <div
+          class="border-left-0 border-right-0 border-top-0 rounded-0 card"
+        >
+          <div
+            class="card-body"
+          >
+            <div
+              class="card-title h5"
+            >
+              title
+            </div>
+            <div
+              class="mb-2 text-muted card-subtitle h6"
+            >
+              February 23, 2020 (10 months ago)
+            </div>
+            <p
+              class="mb-1 card-text"
+            >
+              description
+            </p>
+            <div
+              class="text-right card-subtitle h6"
+            >
+              <p>
+                <small>
+                  author
+                </small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
