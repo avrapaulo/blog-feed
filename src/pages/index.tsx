@@ -1,25 +1,25 @@
 import Head from 'next/head'
 import { Feed } from 'components/feed'
 import { GetServerSideProps } from 'next'
-import { Blog } from 'models/blog'
+import { Post } from 'models/post'
 
 interface Props {
-  blogs: Blog[]
+  posts: Post[]
 }
 
-const HomePage = ({ blogs }: Props) => (
+const HomePage = ({ posts }: Props) => (
   <>
     <Head>
       <title>Blog Feed</title>
     </Head>
-    <Feed blogs={blogs} />
+    <Feed posts={posts} />
   </>
 )
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(`${process.env.API_URL}/posts`)
-  const blogs: Blog[] = await response.json().then(e =>
-    e.sort((a: Blog, b: Blog) => {
+  const posts: Post[] = await response.json().then(e =>
+    e.sort((a: Post, b: Post) => {
       if (a.publish_date === b.publish_date) return 0
 
       return a.publish_date < b.publish_date ? 1 : -1
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      blogs
+      posts
     }
   }
 }
