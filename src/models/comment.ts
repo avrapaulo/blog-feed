@@ -5,4 +5,5 @@ export interface Comment {
   user: string
   date: Date
   content: string
+  dateUpdate?: Date
 }

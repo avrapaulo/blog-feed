@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { trigger } from 'swr'
+import Cookies from 'js-cookie'
 
 interface Props {
   postId: number
@@ -13,25 +14,31 @@ interface Errors {
 
 const AddComment = ({ postId }: Props) => {
   const inputEl = useRef(null)
-  const [form, setForm] = useState<Errors>({ isInvalid: true, message: '' })
+  const [form, setForm] = useState<Errors>({ isInvalid: false, message: '' })
   const handleClick = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     const content = inputEl.current.value
+    const userName = Cookies.get('name')
 
     if (content === '') {
-      setForm({ isInvalid: false, message: 'required field' })
+      setForm({ isInvalid: true, message: 'required field' })
       return
     }
 
     if (content.length < 6) {
-      setForm({ isInvalid: false, message: 'Needs to be at least 6 characters' })
+      setForm({ isInvalid: true, message: 'Needs to be at least 6 characters' })
+      return
+    }
+
+    if (!userName) {
+      setForm({ isInvalid: true, message: 'You need to Sign in' })
       return
     }
 
     await fetch(`api/posts/${postId}/comments`, {
       body: JSON.stringify({
         content,
-        user: 'Natashia'
+        user: userName
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -46,7 +53,7 @@ const AddComment = ({ postId }: Props) => {
 
   const resetForm = async (e: React.ChangeEvent<HTMLElement>) => {
     e.preventDefault()
-    setForm({ isInvalid: true, message: '' })
+    setForm({ isInvalid: false, message: '' })
   }
 
   return (
@@ -60,7 +67,7 @@ const AddComment = ({ postId }: Props) => {
           id="inlineFormInputName2"
           placeholder="Leave here your opinion"
           ref={inputEl}
-          isInvalid={!form.isInvalid}
+          isInvalid={form.isInvalid}
           onChange={resetForm}
         />
         <Form.Control.Feedback type="invalid">{form.message}</Form.Control.Feedback>

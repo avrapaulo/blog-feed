@@ -1,8 +1,7 @@
-import { Card } from 'react-bootstrap'
 import useSWR from 'swr'
 import { AddComment } from 'components/form/add-comment'
-import { FormatDate } from 'components/format-date'
 import { Comment } from 'models/comment'
+import { CommentCart } from './comment'
 
 interface Props {
   postId: number
@@ -22,17 +21,7 @@ const CommentList = ({ postId }: Props) => {
       {comments?.length === 0 ? (
         <div className="text-center">No comments</div>
       ) : (
-        comments?.map(({ id, content, user, date }) => (
-          <Card key={id} className="border border-white bg-light">
-            <Card.Body>
-              <Card.Subtitle className="mt-1 text-muted text-left">
-                <FormatDate publish_date={date} />
-              </Card.Subtitle>
-              {content}
-              <Card.Subtitle className="mt-1 text-muted text-right">{user}</Card.Subtitle>
-            </Card.Body>
-          </Card>
-        ))
+        comments?.map((comment: Comment) => <CommentCart key={comment.id} {...comment} />)
       )}
     </>
   )
