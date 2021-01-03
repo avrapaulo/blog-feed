@@ -5,6 +5,7 @@ import { FormatDate } from 'components/format-date'
 import { CommentList } from 'components/comment-list'
 import { Post } from 'models/post'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
 
 interface Props {
   post: Post
@@ -25,6 +26,9 @@ const variants = {
 
 const DetailPage = ({ post: { publish_date, title, content, author, id } }: Props) => (
   <motion.div initial="exit" animate="visible" exit="exit" variants={variants}>
+    <Head>
+      <title>{title}</title>
+    </Head>
     <Button variant="outline-light" className="mb-2">
       <Link href="/">
         <a>🔙</a>
